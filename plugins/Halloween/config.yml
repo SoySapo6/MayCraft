@@ -1,0 +1,22 @@
+#Enable or Disable the UpdateChecker
+UpdateChecker: true
+
+CustomMobName: "Trick or treat"
+
+ScareDelay: 240
+
+ScarePlayersEnabled: true
+
+WorldGuardSupport: false
+
+#PERMISSIONS
+Permission:
+  NoScarePermission: "halloween.noscare"
+
+  WorldManagePermission: "halloween.worldmanage"
+
+  ToggleScarePlayerPermission: "halloween.manage"
+
+EnabledScareWorlds: []
+
+EnabledScareRegions: []
