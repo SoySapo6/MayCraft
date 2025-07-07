@@ -12,11 +12,11 @@ const JAVA_BIN = path.join(JAVA_DIR, 'bin', 'java');
 
 const PAPER_URL = 'https://api.papermc.io/v2/projects/paper/versions/1.8.8/builds/445/downloads/paper-1.8.8-445.jar';
 
-const PORT = 12005;
+const PORT = 3000;
 
 const JAR = 'paper.jar';
 
-const RAM_LIMIT = '528M';
+const RAM_LIMIT = '128M';
 
 async function installJava8() {
 
@@ -80,7 +80,9 @@ function setupFiles() {
 
   if (!fs.existsSync('start.sh')) {
 
-    const script = `#!/bin/bash\n${JAVA_BIN} -Xmx${RAM_LIMIT} -Xms${RAM_LIMIT} -XX:+UseG1GC -jar ${JAR} --port ${PORT} nogui`;
+    const script = `#!/bin/bash
+
+./java8/bin/java -Xmx256M -Xms128M -XX:+UseSerialGC -XX:+DisableExplicitGC -XX:-UseGCOverheadLimit -jar paper.jar --port 12005 nogui`;
 
     fs.writeFileSync('start.sh', script);
 
